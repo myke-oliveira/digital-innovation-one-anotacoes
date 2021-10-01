@@ -1,11 +1,16 @@
-// Generic types
-
-function adicionaApendiceALista<T>(array: T[], valor: T) {
-  return array.map((item) => (item + valor));
+interface IUsuario {
+  id: string;
+  email: string;
 }
 
-const listaNumerica = adicionaApendiceALista([1, 2, 3], 1)
-const listaAlfa = adicionaApendiceALista(['a', 'b', 'c'], 'd')
+interface IAdmin extends IUsuario {
+  role: 'gerente' | 'coordenador' | 'supervisor'
+}
 
-console.log(listaNumerica);
-console.log(listaAlfa);
+function redirecione (user: IUsuario | IAdmin) {
+  if ('role' in user) {
+    console.log('Redirecione para a administração.')
+    return
+  }
+  console.log('Redirecione para a supervisoria.')
+}
