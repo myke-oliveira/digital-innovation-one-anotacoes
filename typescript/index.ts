@@ -1,16 +1,13 @@
 interface IUsuario {
   id: string;
   email: string;
+  role?: 'gerente' | 'coordenador' | 'supervisor' | 'funcionario';
 }
 
-interface IAdmin extends IUsuario {
-  role: 'gerente' | 'coordenador' | 'supervisor'
-}
-
-function redirecione (user: IUsuario | IAdmin) {
-  if ('role' in user) {
-    console.log('Redirecione para a administração.')
+function redirecione (user: IUsuario) {
+  if (user.role) {
+    console.log('Redirecionar para a Administradoria.')
     return
   }
-  console.log('Redirecione para a supervisoria.')
+  console.log('Redirecionar para a Supervisoria,')
 }
