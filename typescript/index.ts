@@ -1,6 +1,6 @@
 // Generic types
 
-function adicionaApendiceALista<T: number | string>(array: T[], valor: T) {
+function adicionaApendiceALista<T>(array: T[], valor: T) {
   return array.map((item) => (item + valor));
 }
 
