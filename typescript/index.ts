@@ -1,13 +1,21 @@
-interface IUsuario {
-  id: string;
-  email: string;
-  role?: 'gerente' | 'coordenador' | 'supervisor' | 'funcionario';
+interface IDog {
+  name: string;
+  age: number;
+  favoritePark?: string;
 }
 
-function redirecione (user: IUsuario) {
-  if (user.role) {
-    console.log('Redirecionar para a Administradoria.')
-    return
+class Dog implements IDog {
+
+  readonly name: string;
+  age: number;
+  favoritePark?: string;
+
+  constructor(name: string, age: number) {
+    this.name = name,
+    this.age = age
   }
-  console.log('Redirecionar para a Supervisoria,')
 }
+
+const dog = new Dog('Apollo', 14)
+
+console.log(dog);
